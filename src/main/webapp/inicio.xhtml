@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Página con JSF</title>
+	<style>
+.input-position {
+	position: absolute;
+	top: 2348px;
+	left: 1250px;
+	height: 30px;
+	font-size: 28px;
+	border: none;
+}
+
+.tipo-emisora {
+	position: absolute;
+	top: 2553px; 
+	left: 1250px; 
+	font-size: 28px; 
+}
+
+.genero-emisora {
+	position: absolute;
+	top: 2770px; 
+	left: 1250px; 
+	font-size: 28px; 
+}
+
+.crear-emisora {
+	position: absolute;
+	top: 2860px; 
+	left: 880px; 
+	font-size: 28px; 
+	height: 60px;
+	width: 255px;
+	background: transparent;
+	border: none;
+}
+
+body {
+
+	background-color: #170E14;
+	 overflow-x: hidden; 
+}
+
+.input-container {
+	margin-top: 50px;
+}
+</style>
+</h:head>
+<h:body>
+
+	<h:graphicImage style="width: 2000px; height:3100px;"
+		library="resources" name="fondo.png" />
+
+
+	<div class="input-container">
+		<h:form>
+			<h:inputText id="nombreEmisora" value="#{stationBean.stationName}"
+				styleClass="input-position" placeholder="Escribe aquí..." />
+			<p:watermark for="nombreEmisora" value="Escribe aquí..." />
+
+			<h:selectOneMenu value="#{stationBean.transmissionMode}"
+				styleClass="tipo-emisora">
+				<f:selectItem itemLabel="Selecciona una opción..." itemValue="" />
+				<f:selectItem itemLabel="AM" itemValue="AM" />
+				<f:selectItem itemLabel="FM" itemValue="FM" />
+				<f:selectItem itemLabel="Streaming" itemValue="Streaming" />
+			</h:selectOneMenu>
+
+			<h:selectOneMenu value="#{stationBean.music}"
+				styleClass="genero-emisora">
+				<f:selectItem itemLabel="Selecciona una opción..." itemValue="" />
+				<f:selectItem itemLabel="Cristiana" itemValue="Cristiana" />
+				<f:selectItem itemLabel="Salsa" itemValue="Salsa" />
+				<f:selectItem itemLabel="Rock" itemValue="Rock" />
+				<f:selectItem itemLabel="Electronica" itemValue="Electronica" />
+				<f:selectItem itemLabel="Pop" itemValue="Pop" />
+				<f:selectItem itemLabel="Clasica" itemValue="Clasica" />
+				<f:selectItem itemLabel="Ranchera" itemValue="Ranchera" />
+			</h:selectOneMenu>
+
+			<h:commandButton action="#{stationBean.agregarStation}"
+				outcome="inicio.xhtml" styleClass="crear-emisora" />
+			                  
+		</h:form>
+	</div>
+</h:body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Página con JSF</title>
+	<style>
+.agregar-cancion {
+	position: absolute;
+	width: 365px;
+	top: 525px;
+	left: 315px;
+	height: 100px;
+	font-size: 28px;
+	border: none;
+	background: transparent;
+}
+
+.realizar-programacion {
+	position: absolute;
+	width: 365px;
+	top: 709px;
+	left: 315px;
+	height: 100px;
+	font-size: 28px;
+	border: none;
+	background: transparent;
+}
+
+.reproducir-vivo {
+	position: absolute;
+	width: 365px;
+	top: 875px;
+	left: 295px;
+	height: 105px;
+	font-size: 28px;
+	border: none;
+	background: transparent;
+}
+
+body {
+	background-color: #170E14;
+	overflow-x: hidden;
+}
+
+.input-container {
+	margin-top: 50px;
+}
+</style>
+</h:head>
+<h:body>
+
+	<h:graphicImage style="width: 1920px; height:1080px;"
+		library="resources" name="options.png" />
+
+
+	<div class="input-container">
+		<h:form>
+			<h:button value="" outcome="allSongs.xhtml"
+				styleClass="agregar-cancion" />
+			<h:button value="" outcome="cancion.xhtml"
+				styleClass="realizar-programacion" />
+			<h:button value="" outcome="reproductor.xhtml"
+				styleClass="reproducir-vivo" />
+		</h:form>
+	</div>
+</h:body>
+</html>

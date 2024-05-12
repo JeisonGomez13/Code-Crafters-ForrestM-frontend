@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Página con JSF</title>
+	<style>
+.agregar-cancion {
+	position: absolute;
+	width: 223px;
+	top: 949px;
+	left: 856px;
+	font-size: 28px;
+	border: none;
+	height: 70px;
+	background: transparent;
+}
+.volver{
+
+position: absolute;
+	width: 223px;
+	top: 320px;
+	left: 30px;
+	font-size: 28px;
+	border: none;
+	height: 70px;
+	width:90px;
+	background: transparent;
+
+}
+
+.genero-emisora {
+	position: absolute;
+	top: 626px;
+	left: 352px; 
+	font-size: 28px; 
+	width: 320px;
+}
+
+body {
+	
+	 overflow-x: hidden; 
+    background-color: #170E14;
+}
+
+.boxArtista {
+	position: absolute;
+	top: 826px;
+	left: 352px; 
+	font-size: 28px; 
+	width: 320px;
+}
+
+.boxGenero {
+	position: absolute;
+	top: 626px;
+	left: 1257px; 
+	font-size: 28px; 
+	width: 320px;
+}
+
+.boxMp3 {
+	position: absolute;
+	top: 826px;
+	left: 1257px; 
+	font-size: 28px; 
+	width: 320px;
+}
+</style>
+
+</h:head>
+<h:body>
+
+
+	<h:graphicImage style="width: 1920px; height:1080px;"
+		library="resources" name="fondoplay.png" />
+
+
+	<div class="input-container">
+		<h:form id="form">
+
+			<h:selectOneMenu id="nameMusic" value="#{trackBean.nameMusic}"
+				styleClass="genero-emisora">
+
+				<f:selectItems value="#{trackBean.cancionesElegidas}"
+					var="cancion" itemLabel="#{cancion.nameMusic}"
+					itemValue="#{cancion.nameMusic}" />
+				<f:ajax listener="#{trackBean.actualizarDatos}" render="@form" />
+					
+			</h:selectOneMenu>
+
+			<h:selectOneMenu id="nameArtist" value="#{trackBean.nameArtist}"
+				styleClass="boxArtista">
+
+				<f:selectItems value="#{trackBean.cancionesElegidas}"
+					var="cancion" itemLabel="#{cancion.nameArtist}"
+					itemValue="#{cancion.nameArtist}" />
+
+			</h:selectOneMenu>
+
+			<h:selectOneMenu id="genre" value="#{trackBean.genre}"
+				styleClass="boxGenero">
+
+				<f:selectItems value="#{trackBean.cancionesElegidas}"
+					var="cancion" itemLabel="#{cancion.genre}"
+					itemValue="#{cancion.genre}" />
+
+
+
+			</h:selectOneMenu>
+
+
+			<h:selectOneMenu id="fileMP3" value="#{trackBean.fileMP3}"
+				styleClass="boxMp3">
+
+				<f:selectItems value="#{trackBean.cancionesElegidas}"
+					var="cancion" itemLabel="#{cancion.fileMP3}"
+					itemValue="#{cancion.fileMP3}" />
+
+			</h:selectOneMenu>
+
+
+			<h:commandButton action="#{trackBean.agregarTrack}"
+				outcome="opciones.xhtml" styleClass="agregar-cancion" />
+				
+			<h:button outcome="opciones.xhtml" styleClass="volver" value="" />
+		</h:form>
+	</div>
+
+
+</h:body>
+</html>
